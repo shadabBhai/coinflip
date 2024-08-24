@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
@@ -28,10 +29,6 @@ function App() {
   }, [publicKey]);
 
   const handleTokenChange = (e) => setToken(e.target.value);
-
-
-
-
 
   const handleFlip = async () => {
 
@@ -77,6 +74,8 @@ function App() {
     }
   };
 
+
+  // Demo user
   const handleFlipDemo = async () => {
     const flipResult = await Math.random() < 0.5 ? 'heads' : 'tails';
     setResult(flipResult);
@@ -88,16 +87,17 @@ function App() {
       alert("Please Enter valid amount!!!")
       return
     }
+    setFlipping(true)
 
 
-    console.log(chosenSide)
-    console.log(result)
+    // console.log(chosenSide)
+    // console.log(result)
     if (result === chosenSide) {
       const winingAmount = amount * 2;
       const remainingAmount = coins - amount
       const totalAmount = winingAmount + remainingAmount;
       setCoins(totalAmount)
-      alert(`You won! ${amount * 2} SOL has been credited to your wallet.`)
+      // alert(`You won! ${amount * 2} SOL has been credited to your wallet.`)
       return
     }
     if (result !== chosenSide) {

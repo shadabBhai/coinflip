@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import "./coinFlipAnimation.css"
 
 
+// eslint-disable-next-line react/prop-types
 const CoinFlip = ({ result, flipping }) => {
     const [finalResult, setFinalResult] = useState('');
 
