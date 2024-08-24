@@ -1,5 +1,5 @@
 // src/WalletContext.js
-import React, { createContext, useContext, useMemo } from "react";
+import { createContext, useMemo } from "react";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import {
   ConnectionProvider,

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
-import { PublicKey, SystemProgram, Transaction, LAMPORTS_PER_SOL } from '@solana/web3.js';
+import { SystemProgram, Transaction, LAMPORTS_PER_SOL } from '@solana/web3.js';
+import CoinFlip from './components/CoinFlip'
 
 function App() {
   const { publicKey, sendTransaction } = useWallet();
@@ -122,11 +123,12 @@ function App() {
         <button
           onClick={handleFlip}
           disabled={amount <= 0 || balance === 0}
-          className={`w-full  text-white p-2 rounded  transition ${amount <= 0 || balance === 0 ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"
+          className={`w-full  text-white p-2 rounded  transition ${amount <= 0 || balance === 0 ? "bg-gray-400 " : "bg-blue-500 hover:bg-blue-600"
             }`}
         >
           Flip Coin
         </button>
+        <CoinFlip result={result} />
         {result && (
           <div className="mt-4 text-center">
             <p className="text-xl">Result: {result.toUpperCase()}</p>
