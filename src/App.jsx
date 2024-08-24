@@ -93,15 +93,19 @@ function App() {
     }
   };
 
-  const handleFlipDemo = () => {
+  const handleFlipDemo = async () => {
+    const flipResult = await Math.random() < 0.5 ? 'heads' : 'tails';
+    setResult(flipResult);
+    if (!result) {
+      return
+    }
 
     if (coins <= 0 || coins < amount || amount == '') {
       alert("Please Enter valid amount!!!")
       return
     }
 
-    const flipResult = Math.random() < 0.5 ? 'heads' : 'tails';
-    setResult(flipResult);
+
     console.log(chosenSide)
     console.log(result)
     if (result === chosenSide) {
