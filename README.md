@@ -46,4 +46,4 @@ Add your Solana devnet or testnet configurations if needed.
 
 4. Run the development server:
 
-npm start
+npm run dev 
