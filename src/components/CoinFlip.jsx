@@ -1,25 +1,25 @@
 import { useState, useEffect } from 'react';
 import "./coinFlipAnimation.css"
 
-const CoinFlip = ({ result }) => {
-    const [flipping, setFlipping] = useState(false);
+
+const CoinFlip = ({ result, flipping }) => {
+    const [finalResult, setFinalResult] = useState('');
 
     useEffect(() => {
-        if (result !== null) {
-            setFlipping(true);
-            const timer = setTimeout(() => setFlipping(false), 1000); // Set animation duration
-            return () => clearTimeout(timer);
+        if (!flipping) {
+            setFinalResult(result); // Set the final result once the flipping stops
         }
-    }, [result]);
+    }, [flipping, result]);
 
     return (
         <div className="coin-container">
-            <div className={`coin ${flipping ? 'flipping' : ''}`}>
+            <div className={`coin ${flipping ? 'flipping' : finalResult === 'heads' ? 'heads-face' : 'tails-face'}`}>
                 <div className="coin-face coin-heads">Heads</div>
                 <div className="coin-face coin-tails">Tails</div>
             </div>
         </div>
     );
 };
+
 
 export default CoinFlip;

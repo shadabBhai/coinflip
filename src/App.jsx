@@ -12,7 +12,8 @@ function App() {
   const [chosenSide, setChosenSide] = useState('heads');
   const [result, setResult] = useState(null);
   const [token, setToken] = useState("SOL");
-
+  const [flipping, setFlipping] = useState(false)
+  const [coins, setCoins] = useState(5)
 
   // Fetch balance
   const getBalance = async () => {
@@ -27,7 +28,29 @@ function App() {
   }, [publicKey]);
 
   const handleTokenChange = (e) => setToken(e.target.value);
+
+  // const performFlip = (side) => {
+  //   setFlipping(true);
+  //   const flipResult = Math.random() < 0.5 ? 'heads' : 'tails';
+  //   setTimeout(() => {
+  //     setResult(flipResult);
+  //     setFlipping(false);
+
+  //     if (flipResult === side) {
+  //       const winAmount = parseFloat(amount) * 2;
+  //       alert(`You won! ${winAmount} ${token} has been credited to your wallet.`);
+  //       setCoins(coins + winAmount);
+  //     } else {
+  //       alert('You lost! Better luck next time.');
+  //       setCoins(coins - amount);
+  //     }
+  //   }, 1000); // Match this duration with the animation duration
+  // };
+
+
+
   const handleFlip = async () => {
+
     if (!publicKey) {
       alert('Please connect your wallet first.');
       return;
@@ -70,6 +93,34 @@ function App() {
     }
   };
 
+  const handleFlipDemo = () => {
+
+    if (coins <= 0 || coins < amount || amount == '') {
+      alert("Please Enter valid amount!!!")
+      return
+    }
+
+    const flipResult = Math.random() < 0.5 ? 'heads' : 'tails';
+    setResult(flipResult);
+    console.log(chosenSide)
+    console.log(result)
+    if (result === chosenSide) {
+      const winingAmount = amount * 2;
+      const remainingAmount = coins - amount
+      const totalAmount = winingAmount + remainingAmount;
+      setCoins(totalAmount)
+      alert(`You won! ${amount * 2} SOL has been credited to your wallet.`)
+      return
+    }
+    if (result !== chosenSide) {
+      const remainingAmount = coins - amount
+      alert('You lost! Better luck next time.')
+      setCoins(remainingAmount)
+      return
+    }
+
+  }
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
       <h1 className="text-4xl font-bold mb-4">Solana Coinflip Game</h1>
@@ -81,6 +132,9 @@ function App() {
           </p>
           <p className="text-lg">
             <strong>Balance:</strong> {balance} SOL
+          </p>
+          <p className="text-lg">
+            <strong>Balance (Demo):</strong> {coins} SOL
           </p>
         </div>
       )}
@@ -122,16 +176,20 @@ function App() {
         </div>
         <button
           onClick={handleFlip}
-          disabled={amount <= 0 || balance === 0}
-          className={`w-full  text-white p-2 rounded  transition ${amount <= 0 || balance === 0 ? "bg-gray-400 " : "bg-blue-500 hover:bg-blue-600"
-            }`}
+          className={`w-full  text-white p-2 rounded  transition bg-blue-500 `}
         >
           Flip Coin
         </button>
-        <CoinFlip result={result} />
+        <button
+          onClick={handleFlipDemo}
+          className={`w-full  text-white mt-2 p-2 rounded  transition bg-blue-500 `}
+        >
+          Flip Coin (Demo)
+        </button>
+
         {result && (
-          <div className="mt-4 text-center">
-            <p className="text-xl">Result: {result.toUpperCase()}</p>
+          <div className="mt-4 text-center   ">
+            <p className="flex justify-center"> <CoinFlip result={result} flipping={flipping} /></p>
             {result === chosenSide ? (
               <p className="text-green-500 mt-2">You won!</p>
             ) : (
