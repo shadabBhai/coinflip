@@ -118,14 +118,16 @@ function App() {
           <p className="text-lg">
             <strong>Wallet Address:</strong> {publicKey.toBase58()}
           </p>
-          <p className="text-lg">
-            <strong>Balance:</strong> {balance} SOL
-          </p>
-          <p className="text-lg">
-            <strong>Balance (Demo):</strong> {coins} SOL
-          </p>
         </div>
       )}
+      <div className="mt-4">
+        <p className="text-lg">
+          <strong>Balance:</strong> {balance} SOL
+        </p>
+        <p className="text-lg">
+          <strong>Balance (Demo):</strong> {coins} SOL
+        </p>
+      </div>
       <div className="mt-8 w-full max-w-md bg-white p-6 rounded shadow-md">
         <div className="mb-4">
           <label className="block text-gray-700 mb-2">Choose Side:</label>
