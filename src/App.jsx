@@ -80,6 +80,7 @@ function App() {
     const flipResult = await Math.random() < 0.5 ? 'heads' : 'tails';
     setResult(flipResult);
     if (!result) {
+      alert('Please wait!!!')
       return
     }
 
