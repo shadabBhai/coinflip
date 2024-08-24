@@ -29,23 +29,7 @@ function App() {
 
   const handleTokenChange = (e) => setToken(e.target.value);
 
-  // const performFlip = (side) => {
-  //   setFlipping(true);
-  //   const flipResult = Math.random() < 0.5 ? 'heads' : 'tails';
-  //   setTimeout(() => {
-  //     setResult(flipResult);
-  //     setFlipping(false);
 
-  //     if (flipResult === side) {
-  //       const winAmount = parseFloat(amount) * 2;
-  //       alert(`You won! ${winAmount} ${token} has been credited to your wallet.`);
-  //       setCoins(coins + winAmount);
-  //     } else {
-  //       alert('You lost! Better luck next time.');
-  //       setCoins(coins - amount);
-  //     }
-  //   }, 1000); // Match this duration with the animation duration
-  // };
 
 
 
