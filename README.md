@@ -34,3 +34,16 @@ This is a simple coin flip game implemented on the Solana blockchain. Users can 
    cd coinflip
 
    ```
+
+2. Install the dependencies:
+
+npm install
+
+3. Set up environment variables:
+
+Create a .env file in the root directory.
+Add your Solana devnet or testnet configurations if needed.
+
+4. Run the development server:
+
+npm start
