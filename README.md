@@ -1,8 +1,36 @@
-# React + Vite
+# Solana Coinflip Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple coin flip game implemented on the Solana blockchain. Users can connect their Solana wallet, choose a side (Heads or Tails), risk some tokens (SOL), and flip a virtual coin. If the coin lands on the selected side, users get double the amount they risked. Otherwise, they get nothing.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Connect Solana wallet using Phantom wallet.
+- Select token (currently only SOL is supported for transactions).
+- Enter the amount of tokens to risk.
+- Choose Heads or Tails for the coin flip.
+- Get double the tokens if you win, or lose the tokens if you lose.
+
+## Technologies Used
+
+- React
+- Solana Web3.js
+- Tailwind CSS
+- @solana/wallet-adapter-react
+- @solana/wallet-adapter-wallets
+
+## Installation
+
+### Prerequisites
+
+- Node.js and npm installed.
+- Solana wallet (e.g., Phantom) installed in your browser.
+
+### Steps
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/shadabBhai/coinflip.git
+   cd coinflip
+
+   ```
