@@ -18,6 +18,7 @@ const CoinFlip = ({ result, flipping }) => {
                 <div className="coin-face coin-heads">Heads</div>
                 <div className="coin-face coin-tails">Tails</div>
             </div>
+            <>Testing branch</>
         </div>
     );
 };
